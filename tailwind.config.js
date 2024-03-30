@@ -10,6 +10,7 @@ module.exports = {
   ],
 
   theme: {
+    screens: { lg:{max: "1500px"},  md: { max: "1250px" }, sm: { max: "782px" } },
     extend: {},
   },
   plugins: [],

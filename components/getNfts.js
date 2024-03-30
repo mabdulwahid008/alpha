@@ -8,7 +8,7 @@ import { ERC1155_ABI, ERC1155_ADDRESS, STAKING_CONTRACT_ABI, STAKING_CONTRACT_AD
 import { ethers } from 'ethers'
 import Image from "next/image";
 
-export default function GetNfts({ sdk }) {
+export default function GetNfts({ sdk, setRefresh, refresh }) {
 
   const [nfts, setNfts] = useState(null);
   const [stakeNft, setStakeNft] = useState(false);
@@ -25,10 +25,11 @@ export default function GetNfts({ sdk }) {
     }])
   }
 
-  useEffect(() => {
+  useEffect(()=>{
+    setNfts(null)
     getOwnedNfts()
-  }, []);
-  
+  }, [refresh])
+
 
   return (
     <>
@@ -46,7 +47,7 @@ export default function GetNfts({ sdk }) {
                 ))
             );
           })}
-          {stakeNft && <Model stakeNft={stakeNft} setStakeNft={setStakeNft} />}
+          {stakeNft && <Model stakeNft={stakeNft} setStakeNft={setStakeNft} setRefresh={setRefresh}/>}
         </section>
       ) : (
         <h3>You do not have any nft</h3>
@@ -60,7 +61,7 @@ export default function GetNfts({ sdk }) {
 }
 
 
-const Model = ({ stakeNft, setStakeNft }) => {
+const Model = ({ stakeNft, setStakeNft, setRefresh }) => {
   const [stakingPeriod, setSetakingPeriod] = useState(12)
   const [rewards, setRewards] = useState(null)
   const staking_contract = useContract(STAKING_CONTRACT_ADDRESS, STAKING_CONTRACT_ABI)
@@ -97,7 +98,6 @@ const Model = ({ stakeNft, setStakeNft }) => {
 
   const stake = async () => {
     try {
-      // check allownace 
       const approval = await erc1155?.contract?.call("isApprovedForAll", [address, STAKING_CONTRACT_ADDRESS])
       console.log("approval", approval);
       if(!approval)
@@ -106,6 +106,7 @@ const Model = ({ stakeNft, setStakeNft }) => {
       await staking_contract?.contract?.call("stake", [stakeNft.id, 1, stakingPeriod])
       alert("NFT Staked Successfylly.")
       setStakeNft(false)
+      setRefresh(s => !s )
     } catch (error) {
       alert(error)
       console.log("staking err", error);
@@ -124,9 +125,9 @@ const Model = ({ stakeNft, setStakeNft }) => {
   }, [rewards])
   return (
     <div className="fixed top-0 left-0 w-full h-screen bg-[#000000be] z-[999999999999999] " >
-        <div className=" mx-auto mt-[100px] rounded-2xl p-5 bg-[#121212] relative w-[50%] gap-5 justify-start items-center" style={{display:'flex'}}>
+        <div className=" mx-auto mt-[100px] rounded-2xl p-5 bg-[#121212] relative w-[50%] md:w-[80%] sm:w-[90%] sm:flex-col sm:mt-[40px]  gap-5 justify-start items-center" style={{display:'flex'}}>
           <h2 className="absolute top-0 right-5 cursor-pointer" onClick={() => setStakeNft(false)}>X</h2>
-          <Image src={stakeNft.image} width={300} height={400} className="w-full"/>
+          <Image src={stakeNft.image} width={300} height={400} className="w-full sm:h-[200px] object-cover"/>
 
           <div className="flex-col gap-2 w-full" style={{display:"flex"}}>
             <h3 className="text-2xl font-bold">{stakeNft.name}</h3>
@@ -144,7 +145,7 @@ const Model = ({ stakeNft, setStakeNft }) => {
                   </span>
               </div>
 
-              <div className="flex-col gap-1 mt-6" style={{display:"flex"}}>
+              <div className="flex-col gap-1 mt-6 sm:mt-3" style={{display:"flex"}}>
                 <h4>Approximate Reward</h4>
                 {rewards? <>
                 <div className="justify-between items-center mt-4" style={{display:"flex"}}>

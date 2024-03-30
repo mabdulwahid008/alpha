@@ -4933,3 +4933,8 @@ text-align: center;
   margin-top: -30%;
   }
 }
+
+
+.forced-unstake:hover ~ p {
+  opacity: 1;
+}

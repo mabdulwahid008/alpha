@@ -26,7 +26,9 @@ const sdk = new ThirdwebSDK("mumbai", {
 
 
 import ClaimableRewards from "../components/ClaimableRewards" 
+import { STAKING_CONTRACT_ADDRESS } from "../constants";
 const Stake: NextPage = () => {
+    const [refresh, setRefresh] = useState(false)
 
     // const { contract } = useContract(ERC1155_ADDRESS, ERC1155_ABI)
     
@@ -39,15 +41,11 @@ const Stake: NextPage = () => {
     // const { data: tokenBalance, isLoading: tisLoading } = useTokenBalance(tokenContract, address);
 
 
-    useEffect(()=>{
-  
-        
-    }, [])
+
 
     return (
         <>
             <div className={address ? "stake loadingstake" : "stake loadingstake "} style={{display:''}}>
-
                 <Header />
                 <div
                     className={
@@ -76,7 +74,7 @@ const Stake: NextPage = () => {
                                         <div className={styles.tokenItem}>
                                             <h3 className={styles.tokenLabel}>Claimable Rewards</h3>
                                             <p className={styles.tokenValue}>
-                                               {/* <ClaimableRewards stakingAddress={STAKING_CONTRACT_ADDRESS} tokenId={0}/> */}
+                                               <ClaimableRewards stakingAddress={STAKING_CONTRACT_ADDRESS} tokenId={0}/>
                                                 {/* {tokenBalance?.symbol} */}
                                             </p>
                                         </div>
@@ -96,11 +94,11 @@ const Stake: NextPage = () => {
                                     </Web3Button> */}
                                     {/* <hr className={`${styles.divider} ${styles.spacerTop} my-5`} /> */}
                                     <h2 className="mt-10">Your Staked NFTs</h2>
-                                    <StakedNfts sdk={sdk}/>
+                                    <StakedNfts sdk={sdk} setRefresh={setRefresh} refresh={refresh}/>
 
                                     <hr className={`${styles.divider} ${styles.spacerTop} my-5`} />
                                     <h2>Your Unstaked NFTs</h2>
-                                     <GetNfts sdk={sdk}/>
+                                     <GetNfts sdk={sdk} setRefresh={setRefresh}  refresh={refresh}/>
 
                                     {/* {
                                         stisLoading ?
