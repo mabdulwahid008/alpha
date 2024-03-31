@@ -39,16 +39,16 @@ function StakeCards({ sdk }) {
         fetchMyStakedNFTs()
     }, [contract])
   return (
-    <div className='sm:flex-wrap gap-4 justify-center items-center w-full px-10' style={{display:'flex'}}>
-        <div className='flex-1 bg-black border-[1px] border-gray-200 rounded-lg pt-6 pb-5'>
+    <div className='gap-4 sm:flex-wrap justify-center items-center w-full px-10' style={{display:'flex'}}>
+        <div className='w-[30%] sm:w-full bg-black border-[1px] border-gray-200 rounded-lg pt-6 pb-5'>
                 <p className='text-center leading-5'>Staking Completed</p>
                 <p className='text-center leading-3'>{count}</p>
         </div>
-        <div className='flex-1 bg-black border-[1px] border-gray-200 rounded-lg pt-6 pb-5'>
+        <div className='w-[30%] sm:w-full bg-black border-[1px] border-gray-200 rounded-lg pt-6 pb-5'>
                 <p className='text-center leading-5'>ACT Balance</p>
                 <p className='text-center leading-3'>{act}</p>
         </div>
-        <div className='flex-1 bg-black border-[1px] border-gray-200 rounded-lg pt-6 pb-5'>
+        <div className='w-[30%] sm:w-full bg-black border-[1px] border-gray-200 rounded-lg pt-6 pb-5'>
                 <p className='text-center leading-5'>USDT Balance</p>
                 <p className='text-center leading-3'>{usdt}</p>
         </div>
