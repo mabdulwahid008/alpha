@@ -8,14 +8,10 @@ import {
     useTokenBalance,
     Web3Button,
 } from "@thirdweb-dev/react";
-import { BigNumber, ethers } from "ethers";
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
-import NFTCard from "../components/NFTCard";
-
 import styles from "../styles/Home.module.css";
 import { Header } from "../components/Header";
-import LoggedIn from "../components/loggedIn";
 import GetNfts from "../components/getNfts";
 import StakedNfts from "../components/StakedNfts";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
@@ -30,16 +26,7 @@ import { STAKING_CONTRACT_ADDRESS } from "../constants";
 const Stake: NextPage = () => {
     const [refresh, setRefresh] = useState(false)
 
-    // const { contract } = useContract(ERC1155_ADDRESS, ERC1155_ABI)
-    
-
-    // const tokenContractAddress = "0x370806781689E670f85311700445449aC7C3Ff7a";
-
     const address = useAddress();
-
-    // const { contract: tokenContract } = useContract(tokenContractAddress,"token");
-    // const { data: tokenBalance, isLoading: tisLoading } = useTokenBalance(tokenContract, address);
-
 
 
 
