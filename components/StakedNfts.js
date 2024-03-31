@@ -1,6 +1,6 @@
 import { useAddress, useContract } from '@thirdweb-dev/react'
 import React, { useEffect, useState } from 'react'
-import { ERC1155_ABI, ERC1155_ADDRESS, STAKING_CONTRACT_ABI, STAKING_CONTRACT_ADDRESS } from '../constants'
+import { ERC1155_ADDRESS, STAKING_CONTRACT_ABI, STAKING_CONTRACT_ADDRESS } from '../constants'
 import { ethers } from 'ethers'
 import { useTimer } from 'react-timer-hook';
 import styles from "../styles/Home.module.css";
@@ -34,7 +34,6 @@ function StakedNfts({ sdk, setRefresh, refresh }) {
             })
         }
         
-        console.log("stakedNfts", stakedNfts);
         setStakeNfts(stakedNfts)
     }
 
