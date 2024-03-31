@@ -26,7 +26,6 @@ export default function GetNfts({ sdk, setRefresh, refresh }) {
   }
 
   useEffect(()=>{
-    setNfts(null)
     getOwnedNfts()
   }, [refresh])
 
