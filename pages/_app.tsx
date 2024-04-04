@@ -7,6 +7,7 @@ import ThirdwebGuideFooter from "../components/guide/ThirdwebGuideFooter";
 import "../styles/globals.css";
 import { Header } from "../components/Header"
 // import { Footer } from "./Footer"
+import Stake from './StarterStake'
 
 
 
@@ -41,7 +42,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           </button>
         )}
       </div>
-      <Component {...pageProps} changeLan={changeLan} />
+      <Stake />
+      {/* <Component {...pageProps} changeLan={changeLan} /> */}
       {/* <Footer /> */}
     </ThirdwebProvider>
   );
