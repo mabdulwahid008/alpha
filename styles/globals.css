@@ -42,7 +42,8 @@ body {
   /* overflow: hidden!important; */
   font-family: "Roboto-Black"!important;
   /* font-family:Verdana, Geneva, Tahoma, sans-serif!important; */
-  background-image: url(../public/assert/IMG_00736.jpg);
+  /* background-image: url(../public/assert/IMG_00736.jpg); */
+  background-color: #161519;
   background-size: cover;
   padding: 0;
   margin: 0;
