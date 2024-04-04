@@ -21,7 +21,7 @@ const Stake: NextPage = () => {
     return (
         <>
             <div className={address ? "stake loadingstake" : "stake loadingstake "} style={{display:''}}>
-                <Header />
+                {/* <Header /> */}
                 <div
                     className={
                         !address
