@@ -77,6 +77,7 @@ function StakedNfts({ sdk, setRefresh, refresh }) {
             nft.index = i;
             return <Card nft={nft} key={i} loading={loading} unstake={unstake} forcedUnstake={forcedUnstake}/>
         })}
+        {stakedNfts?.length === 0 && <p>No NFT Staked</p>}
     </div>
   )
 }
@@ -86,7 +87,7 @@ export default StakedNfts
 
 const Card = ({ nft, loading, unstake, forcedUnstake }) => {
     let expiryTimestamp  = new Date(nft.stakingPeriodEnd * 1000)
-    const { seconds, minutes, hours, days } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
+    const { totalSeconds, seconds, minutes, hours, days } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
     const [timeLeft, setTimeLeft] = useState()
     const [rewards, setRewards] = useState({usdt: 0, act: 0})
 
@@ -176,7 +177,7 @@ const Card = ({ nft, loading, unstake, forcedUnstake }) => {
        
 
             <div className='' style={{display:'flex'}}>
-                {nft.stakingPeriodEnd - nft.lastStakeTime == 0?
+                {totalSeconds <= 0?
                         <button disabled={loading} className='disabled:opacity-70 disabled:cursor-wait mt-4' onClick={() => unstake(nft.index)}>UnStake</button>
                     :
                     <div className='relative'>

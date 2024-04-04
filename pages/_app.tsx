@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import type { AppProps } from "next/app";
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
-import { Mumbai } from '@thirdweb-dev/chains'
+import { Polygon } from '@thirdweb-dev/chains'
 import Head from "next/head";
 import ThirdwebGuideFooter from "../components/guide/ThirdwebGuideFooter";
 import "../styles/globals.css";
@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [changeLan, setchangeLan] = useState(true);
 
   return (
-    <ThirdwebProvider activeChain={Mumbai}
+    <ThirdwebProvider activeChain={Polygon}
     clientId="c63fd3dcf8c9eec46c253e543b0ff569" >
       <div className="setchangeLang">
         {changeLan ? (

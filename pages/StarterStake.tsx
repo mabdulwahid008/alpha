@@ -11,8 +11,8 @@ import StakedNfts from "../components/StakedNfts";
 import StakeCards from "../components/StakeCards";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-const sdk = new ThirdwebSDK("mumbai", {
-    clientId: "b811b882dc25f4433d4e7c259175ebef",
+const sdk = new ThirdwebSDK("polygon", {
+    clientId: "3772a2a8dd76298dcd6b0015731299d2",
 });
 
 const Stake: NextPage = () => {
