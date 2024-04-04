@@ -22,6 +22,7 @@ const Stake: NextPage = () => {
         <>
             <div className={address ? "stake loadingstake" : "stake loadingstake "} style={{display:''}}>
                 {/* <Header /> */}
+                <div className="justify-center mt-5" style={{display: 'flex'}}> <ConnectWallet /> </div>
                 <div
                     className={
                         !address
@@ -31,18 +32,12 @@ const Stake: NextPage = () => {
                     }
                 >
 
-                    {!address ? (
-
-                        <div className="connect"> <ConnectWallet /> </div>
-                        // undefined
-                    ) : (
+                    {address && (
                         <div className={styles.container}>
                             <h1 className={styles.h1}>Stake Your NFTs</h1>
                             <hr className={`${styles.divider} ${styles.spacerTop} my-5`} />
 
-                            {!address ? (
-                                <ConnectWallet />
-                            ) : (
+                        
                                 <>
                                     <h2>Your Tokens</h2>
                                     <StakeCards sdk={sdk} />
@@ -55,7 +50,7 @@ const Stake: NextPage = () => {
 
                                   
                                 </>
-                            )}
+                            
                         </div>
                     )}
                 </div>
