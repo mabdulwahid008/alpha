@@ -22,7 +22,12 @@ const Stake: NextPage = () => {
         <>
             <div className={address ? "stake loadingstake" : "stake loadingstake "} style={{display:''}}>
                 {/* <Header /> */}
-                <div className="justify-center mt-5" style={{display: 'flex'}}> <ConnectWallet /> </div>
+                <div className="justify-between mt-5 w-full px-10" style={{display: 'flex'}}> 
+                    <button onClick={()=> window.location = 'https://ildattero.com/'} className="bg-gray-800 rounded-md border-none ">
+                        Back
+                    </button>
+                    <ConnectWallet /> 
+                </div>
                 <div
                     className={
                         !address
