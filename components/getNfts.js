@@ -11,7 +11,7 @@ import Image from "next/image";
 export default function GetNfts({ sdk, setRefresh, refresh }) {
 
   const [nfts, setNfts] = useState(null);
-  const [stakeNft, setStakeNft] = useState({id: 0});
+  const [stakeNft, setStakeNft] = useState(false);
   const address = useAddress();
 
   const getOwnedNfts = async() => {
