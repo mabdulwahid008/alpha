@@ -11,7 +11,7 @@ import Image from "next/image";
 export default function GetNfts({ sdk, setRefresh, refresh }) {
 
   const [nfts, setNfts] = useState(null);
-  const [stakeNft, setStakeNft] = useState(false);
+  const [stakeNft, setStakeNft] = useState({id: 0});
   const address = useAddress();
 
   const getOwnedNfts = async() => {
@@ -55,6 +55,7 @@ export default function GetNfts({ sdk, setRefresh, refresh }) {
       ) : (
         <h3>You do not have any nft</h3>
       )}
+      {stakeNft && <Model stakeNft={stakeNft} setStakeNft={setStakeNft} setRefresh={setRefresh}/>}
     </>
       :
       <Image src={'https://icon-park.com/imagefiles/loading7_pink.gif'} width={40} height={40} className="mt"/>
@@ -102,7 +103,6 @@ const Model = ({ stakeNft, setStakeNft, setRefresh }) => {
   const stake = async () => {
     try {
       const approval = await erc1155?.contract?.call("isApprovedForAll", [address, STAKING_CONTRACT_ADDRESS])
-      console.log("approval", approval);
       if(!approval)
         await erc1155?.contract?.call("setApprovalForAll", [STAKING_CONTRACT_ADDRESS, true])
 
