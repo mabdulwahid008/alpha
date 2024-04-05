@@ -17,16 +17,17 @@ export default function GetNfts({ sdk, setRefresh, refresh }) {
   const getOwnedNfts = async() => {
     const contract = await sdk.getContract(ERC1155_ADDRESS)
     const nfts = await contract.erc1155.getOwned(address)
-    if(nfts.length > 0)
-    setNfts([{
-      name: nfts[0].metadata.name,
-      balance: nfts[0].quantityOwned,
-      image: nfts[0].metadata.image,
-      id: nfts[0].metadata.id
-    }])
-    else{
-      setNfts([])
+    let nftss = []
+    for (let i = 0; i < nfts.length; i++) {
+      nftss.push({
+        name: nfts[i].metadata.name,
+        balance: nfts[i].quantityOwned,
+        image: nfts[i].metadata.image,
+        id: nfts[i].metadata.id
+      })
     }
+    
+    setNfts(nftss)
   }
 
   useEffect(()=>{
