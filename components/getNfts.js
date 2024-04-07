@@ -25,11 +25,15 @@ export default function GetNfts({ sdk, setRefresh, refresh }) {
     })
     let res = await response.json()
     if(response.status === 200){
+      if(tokenBalance > 0)
       return {
         name:res.name,
         balance: tokenBalance,
         image: `https://ipfs.io/ipfs/${res.image.replace('ipfs://', '')}`,
         id: id
+      }
+      else{
+        return null
       }
     }
     else{
