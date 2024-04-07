@@ -38,11 +38,11 @@ export default function GetNfts({ sdk, setRefresh, refresh }) {
   }
 
   const getOwnedNfts = async() => {
-    let add = '0xdA6FC02997Fb49941f2067babfC32020717fa12a'
-    let balance_od_0 = await contract?.call('balanceOf', [add, 0])
-    let balance_od_1 = await contract?.call('balanceOf', [add, 1])
-    let balance_od_2 = await contract?.call('balanceOf', [add, 2])
-    let balance_od_3 = await contract?.call('balanceOf', [add, 3])
+    // let add = '0xdA6FC02997Fb49941f2067babfC32020717fa12a'
+    let balance_od_0 = await contract?.call('balanceOf', [address, 0])
+    let balance_od_1 = await contract?.call('balanceOf', [address, 1])
+    let balance_od_2 = await contract?.call('balanceOf', [address, 2])
+    let balance_od_3 = await contract?.call('balanceOf', [address, 3])
     let id_0_balanace = ethers?.utils?.formatEther(balance_od_0) * 10 ** 18
     let id_1_balanace = ethers?.utils?.formatEther(balance_od_1) * 10 ** 18
     let id_2_balanace = ethers?.utils?.formatEther(balance_od_2) * 10 ** 18
