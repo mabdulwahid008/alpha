@@ -46,7 +46,7 @@ export default function Card({nft, setStakeNft}) {
         stake
       </Web3Button> */}
 
-      <button onClick={()=>{setStakeNft(nft)}}>Stake</button>
+      <button onClick={()=>{setStakeNft(nft)}} className="stakebtn">Stake</button>
     </section>
   );
 }

@@ -21,24 +21,26 @@ const Stake: NextPage = () => {
     return (
         <>
             <div className={address ? "stake loadingstake" : "stake loadingstake "} style={{display:''}}>
-                {/* <Header /> */}
-                <div className="justify-between mt-5 w-full px-10" style={{display: 'flex'}}> 
+                <Header />
+                {/* <div className="justify-between mt-5 w-full px-10" style={{display: 'flex'}}> 
                     <button onClick={()=> window.location.href = 'https://ildattero.com/'} className="bg-gray-800 rounded-md border-none ">
                         Back
                     </button>
                     <ConnectWallet /> 
-                </div>
+                </div> */}
                 <div
                     className={
                         !address
                             ? "stakeaa loadingstakea"
-
+                              
                             : ""
                     }
                 >
 
                     {address && (
                         <div className={styles.container}>
+                    {/* <ConnectWallet />  */}
+                            
                             <h1 className={styles.h1}>Stake Your NFTs</h1>
                             <hr className={`${styles.divider} ${styles.spacerTop} my-5`} />
 
@@ -58,6 +60,7 @@ const Stake: NextPage = () => {
                             
                         </div>
                     )}
+                    
                 </div>
             </div>
 
