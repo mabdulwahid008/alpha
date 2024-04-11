@@ -2,6 +2,9 @@ import React, { useState } from "react";
 
 import Link from "next/link";
 
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+
 const Navbar = () => {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
   return (
@@ -44,6 +47,10 @@ const Navbar = () => {
                             Stake
                           </a>
                         </li>
+                         
+                         <li>
+                         <ConnectWallet />
+                         </li>
           </ul>
         </div>
 
