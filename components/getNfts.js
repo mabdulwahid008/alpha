@@ -25,12 +25,21 @@ export default function GetNfts({ sdk, setRefresh, refresh }) {
     })
     let res = await response.json()
     if(response.status === 200){
-      if(tokenBalance > 0)
-      return {
-        name:res.name,
-        balance: tokenBalance,
-        image: `https://ipfs.io/ipfs/${res.image.replace('ipfs://', '')}`,
-        id: id
+      if(tokenBalance > 0){
+
+        let nftMetadat = {
+          name:res.name,
+          balance: tokenBalance,
+          image: `https://ipfs.io/ipfs/${res.image.replace('ipfs://', '')}`,
+          id: id
+        }
+
+        return nftMetadat
+        // if (!nfts) {
+        //   setNfts([nftMetadat]);
+        // } else {
+        //   setNfts(nfts.push(nftMetadat));
+        // }
       }
       else{
         return null
@@ -42,7 +51,7 @@ export default function GetNfts({ sdk, setRefresh, refresh }) {
   }
 
   const getOwnedNfts = async() => {
-    // let add = '0xdA6FC02997Fb49941f2067babfC32020717fa12a'
+    // let address = '0xdA6FC02997Fb49941f2067babfC32020717fa12a'
     let balance_od_0 = await contract?.call('balanceOf', [address, 0])
     let balance_od_1 = await contract?.call('balanceOf', [address, 1])
     let balance_od_2 = await contract?.call('balanceOf', [address, 2])
@@ -54,12 +63,12 @@ export default function GetNfts({ sdk, setRefresh, refresh }) {
 
     let nftss = []
     const uri_0 = await contract?.call('uri', [0])
-    const uri_1 = await contract?.call('uri', [1])
-    const uri_2 = await contract?.call('uri', [2])
-    const uri_3 = await contract?.call('uri', [3])
     const data_0 = await getData(uri_0, id_0_balanace, 0)
+    const uri_1 = await contract?.call('uri', [1])
     const data_1 = await getData(uri_1, id_0_balanace, 1)
+    const uri_2 = await contract?.call('uri', [2])
     const data_2 = await getData(uri_2, id_0_balanace, 2)
+    const uri_3 = await contract?.call('uri', [3])
     const data_3 = await getData(uri_3, id_0_balanace, 3)
     if(data_0)
       nftss.push(data_0)

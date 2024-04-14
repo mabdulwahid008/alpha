@@ -1,29 +1,10 @@
-import { useState } from "react";
-import styles from "../styles/Home.module.css";
 
-import { Web3Button } from "@thirdweb-dev/react";
+import styles from "../styles/Home.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { useContract, useAddress } from "@thirdweb-dev/react";
-
 export default function Card({nft, setStakeNft}) {
-  // const address = useAddress();
-
-
-
-  // const stakingContractAddress = props.stakingContractAddres;
-
  
-
-
-
-  // const nftDropContractAddress = "0xdc91E2fD661E88a9a1bcB1c826B5579232fc9898";
-  // const { contract, isLoading } = useContract(props.stakingContractAddres);
-  // const { contract: nftDropContract } = useContract(
-  //   nftDropContractAddress,
-  //   "nft-drop"
-  // );
 
   return (
     <section className={styles.cardContainer}>
@@ -37,14 +18,6 @@ export default function Card({nft, setStakeNft}) {
       <ToastContainer />
 
       <br />
-      {/* <Web3Button
-        contractAddress={props.stakingContractAddres}
-        action={() => {
-          stakeNft();
-        }}
-      >
-        stake
-      </Web3Button> */}
 
       <button onClick={()=>{setStakeNft(nft)}} className="stakebtn">Stake</button>
     </section>

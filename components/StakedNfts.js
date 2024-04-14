@@ -14,7 +14,7 @@ function StakedNfts({ sdk, setRefresh, refresh }) {
 
     const address = useAddress()
 
-    const fetchMyStakedNFTs = async () => {
+    const fetchMyStakedNFTs = async () => { 
         const events = await contract?.events.getAllEvents()
         const stakedEvents = events?.filter((e) => e.eventName === "Staked" && e.data.user == address)
 
