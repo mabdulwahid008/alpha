@@ -4954,3 +4954,16 @@ text-align: center;
     margin-left: 27%;
   }
 }
+
+.custom-class {
+  /* opacity: 0.7!important; */
+  /* cursor: not-allowed; */
+  margin-top: 1rem!important; /* Adjust as needed */
+  background-color: #e53e3e!important; /* Adjust as needed */
+  border-radius: 1px!important;
+  color: white!important;
+}
+
+.custom-class:hover {
+  background-color: #c53030!important; /* Adjust as needed */
+}
