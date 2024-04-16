@@ -4967,3 +4967,10 @@ text-align: center;
 .custom-class:hover {
   background-color: #c53030!important; /* Adjust as needed */
 }
+
+.ccbtn{
+  position: absolute!important;
+  top: 50%!important;
+  left: 50%!important;
+  transform: translate(-50%, -50%)!important;
+}
