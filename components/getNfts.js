@@ -257,43 +257,83 @@ export default function getNfts(props) {
   const [nfts, setNfts] = useState([]);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const address = useAddress();
-  const chain = "0x89";
 
-  const stakingContractAddres = "0x9f942b5fb2e208b5C2567349742A1B9C80ac97eB"
-
-  console.log("nfts are");
-  console.log(nfts);
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => {
-    let response;
-    async function getData() {
-      response = await axios
-        .get(`https://backened-asad-ghouri.vercel.app/getnfts`, {
-          params: { address, chain },
-        })
-        .then((response) => {
-          setNfts(response.data.result);
-          console.log("ids are ",);
-        });
+  const getData = async( uri, tokenBalance, id ) => {
+    uri = uri.replace('ipfs://', '')
+    const response = await fetch(`https://ipfs.io/ipfs/${uri}`,{
+      method:'GET',
+      headers: {
+        'Content-Type': 'Application/json'
+      }
+    })
+    let res = await response.json()
+    if(response.status === 200){
+      if(tokenBalance > 0)
+      return {
+        name:res.name,
+        balance: tokenBalance,
+        image: `https://ipfs.io/ipfs/${res.image.replace('ipfs://', '')}`,
+        id: id
+      }
+      else{
+        return null
+      }
     }
-    getData();
-  }, []);
-
-  useEffect(() => {
-    let response;
-    async function getData() {
-      response = await axios
-        .get(`https://backened-asad-ghouri.vercel.app/getnfts`, {
-          params: { address, chain },
-        })
-        .then((response) => {
-          setNfts(response.data.result);
-          console.log("ids are ",nfts);
-        });
+    else{
+      return null
     }
-    getData();
-  }, []);
+  }
+
+  const getOwnedNfts = async() => {
+    // let add = '0xdA6FC02997Fb49941f2067babfC32020717fa12a'
+    let balance_od_0 = await contract?.call('balanceOf', [address, 0])
+    let balance_od_1 = await contract?.call('balanceOf', [address, 1])
+    let balance_od_2 = await contract?.call('balanceOf', [address, 2])
+    let balance_od_3 = await contract?.call('balanceOf', [address, 3])
+    let id_0_balanace = ethers?.utils?.formatEther(balance_od_0) * 10 ** 18
+    let id_1_balanace = ethers?.utils?.formatEther(balance_od_1) * 10 ** 18
+    let id_2_balanace = ethers?.utils?.formatEther(balance_od_2) * 10 ** 18
+    let id_3_balanace = ethers?.utils?.formatEther(balance_od_3) * 10 ** 18
+
+    let nftss = []
+    const uri_0 = await contract?.call('uri', [0])
+    const uri_1 = await contract?.call('uri', [1])
+    const uri_2 = await contract?.call('uri', [2])
+    const uri_3 = await contract?.call('uri', [3])
+    const data_0 = await getData(uri_0, id_0_balanace, 0)
+    const data_1 = await getData(uri_1, id_0_balanace, 1)
+    const data_2 = await getData(uri_2, id_0_balanace, 2)
+    const data_3 = await getData(uri_3, id_0_balanace, 3)
+    if(data_0)
+      nftss.push(data_0)
+    if(data_1)
+      nftss.push(data_1)
+    if(data_2)
+      nftss.push(data_2)
+    if(data_3)
+      nftss.push(data_3)
+
+
+    // const contract = await sdk.getContract(ERC1155_ADDRESS)
+    // const nfts = await contract.erc1155.getOwned(address)
+    // let nftss = []
+    // for (let i = 0; i < nfts.length; i++) {
+    //   nftss.push({
+    //     name: nfts[i].metadata.name,
+    //     balance: nfts[i].quantityOwned,
+    //     image: nfts[i].metadata.image,
+    //     id: nfts[i].metadata.id
+    //   })
+    // }
+    
+    setNfts(nftss)
+  }
+
+  useEffect(()=>{
+    if(contract)
+    getOwnedNfts()
+  }, [refresh, contract])
+
 
   return (
     <>
