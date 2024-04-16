@@ -5,15 +5,8 @@ import styles from "../styles/Home.module.css";
 import Card from "./card.js";
 import { useAddress } from "@thirdweb-dev/react";
 
-export default function getNfts(props) {
-  console.log(
-    "in getnfts in " +
-      props.stakingContractAddres +
-      " " +
-      props.minvalue +
-      " " +
-      props.maxvalue
-  );
+export default function GetNfts(props) {
+  
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [nfts, setNfts] = useState([]);
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -23,7 +16,6 @@ export default function getNfts(props) {
   console.log("nfts are");
   console.log(nfts);
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     let response;
     async function getData() {
@@ -39,20 +31,7 @@ export default function getNfts(props) {
     getData();
   }, []);
 
-  useEffect(() => {
-    let response;
-    async function getData() {
-      response = await axios
-        .get(`https://backened-asad-ghouri.vercel.app/getnfts`, {
-          params: { address, chain },
-        })
-        .then((response) => {
-          setNfts(response.data.result);
-          console.log("ids are ",response.data.result);
-        });
-    }
-    getData();
-  }, []);
+ 
 
   return (
     <>
