@@ -1,3 +1,30 @@
+
+
+// import styles from "../styles/Home.module.css";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
+
+// export default function Card({nft, setStakeNft}) {
+ 
+
+//   return (
+//     <section className={styles.cardContainer}>
+//       {nft?.name ? <h1>{nft.name}</h1> : <h1>No NFT title can be shown.</h1>}
+//       {nft.image ? <img src={nft.image} /> : <p>No NFT image can be shown.</p>}
+//       {nft.id ? (
+//         <h3 >id is : {nft.id}</h3>
+//       ) : (
+//         <p>No id can be shown.</p>
+//       )}
+//       <ToastContainer />
+
+//       <br />
+
+//       <button onClick={()=>{setStakeNft(nft)}} className="stakebtn">Stake</button>
+//     </section>
+//   );
+// }
+
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
 
@@ -7,24 +34,15 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { useContract, useAddress } from "@thirdweb-dev/react";
 
-export default function Card(props) {
+export default function Card({uri, setStakeNft,stakingContractAddres,id , amount}) {
   const address = useAddress();
 
-  console.log(
-    "in cards in type of staking address is " +
-      typeof props.stakingContractAddres +
-      " " +
-      props.stakingContractAddres +
-      "id type is " +
-      typeof props.id +
-      "id is " +
-      props.id
-  );
+ 
 
   const stakingContractAddress = "0x9f942b5fb2e208b5C2567349742A1B9C80ac97eB"
-  const stakingContractAddres = "0x9f942b5fb2e208b5C2567349742A1B9C80ac97eB"
+  // const stakingContractAddres = "0x9f942b5fb2e208b5C2567349742A1B9C80ac97eB"
 
-  const [nft, setNft] = useState(JSON.parse(props.uri.metadata));
+  const [nft, setNft] = useState(JSON.parse(uri.metadata));
 
   const [nftImage, setNftImage] = useState(() => {
     if (nft?.image) {
@@ -35,14 +53,14 @@ export default function Card(props) {
   });
 
   const handleCopyClick = () => {
-    navigator.clipboard.writeText(props.id);
+    navigator.clipboard.writeText(id);
     document.execCommand("copy");
 
-    toast.success(`Text copied: ${props.id}`);
+    toast.success(`Text copied: ${id}`);
   };
 
   const nftDropContractAddress = "0xdc91E2fD661E88a9a1bcB1c826B5579232fc9898";
-  const { contract, isLoading } = useContract(props.stakingContractAddres);
+  const { contract, isLoading } = useContract(stakingContractAddres);
   const { contract: nftDropContract } = useContract(
     nftDropContractAddress,
     "nft-drop"
@@ -64,10 +82,10 @@ export default function Card(props) {
     <section className={styles.cardContainer}>
       {nft?.name ? <h1>{nft.name}</h1> : <h1>No NFT title can be shown.</h1>}
       {nftImage ? <img src={nftImage} /> : <p>No NFT image can be shown.</p>}
-      {props.id ? (
+      {id ? (
         <>
-        <h3 onClick={handleCopyClick}>id : {props.id}</h3>
-        <h3 >Amount : {props.amount}</h3>
+        <h3 onClick={handleCopyClick}>id : {id}</h3>
+        <h3 >Amount : {amount}</h3>
         </>
       ) : (
         <p>No id can be shown.</p>
@@ -75,15 +93,7 @@ export default function Card(props) {
       <ToastContainer />
 
       <br />
-      <Web3Button
-        contractAddress={stakingContractAddres}
-        className='custom-class'
-        action={() => {
-          stakeNft();
-        }}
-      >
-        stake
-      </Web3Button>
+ <button onClick={()=>{setStakeNft(uri)}} className="stakebtn">Stake</button> 
     </section>
   );
 }
