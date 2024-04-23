@@ -9,6 +9,7 @@ export const STAKING_CONTRACT_ABI =  [
         "internalType": "address",
         "name": "_erc1155Token",
         "type": "address"
+        
       },
       {
         "internalType": "address",
