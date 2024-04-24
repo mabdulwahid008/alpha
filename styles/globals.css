@@ -4974,3 +4974,19 @@ text-align: center;
   left: 50%!important;
   transform: translate(-50%, -50%)!important;
 }
+
+@media(max-width:600px){
+  .containe {
+    position: relative;
+    height: 100vh; /* Set the container height to the viewport height */
+  }
+  
+  .centered-butto {
+    position: absolute!important;
+    top: 50%!important;
+    left: 50%!important;
+    transform: translate(-50%, -50%)!important;
+    /* Add your button styles here */
+  }
+  
+}
