@@ -105,9 +105,9 @@ const Card = ({ nft, loading, unstake, forcedUnstake }) => {
             seconds: fixValue(seconds),
         })
 
-    if(true)
+    // if(true)
         getRewards()
-    }, [seconds])
+    }, [])
 
 
     

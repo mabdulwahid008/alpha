@@ -72,57 +72,57 @@ export default function GetNfts({ sdk, setRefresh, refresh }) {
 
  
 
-  const getOwnedNfts = async() => {
-    // let address = '0xdA6FC02997Fb49941f2067babfC32020717fa12a'
-    let balance_od_0 = await contract?.call('balanceOf', [address, 0])
-    let balance_od_1 = await contract?.call('balanceOf', [address, 1])
-    let balance_od_2 = await contract?.call('balanceOf', [address, 2])
-    let balance_od_3 = await contract?.call('balanceOf', [address, 3])
-    let id_0_balanace = ethers?.utils?.formatEther(balance_od_0) * 10 ** 18
-    let id_1_balanace = ethers?.utils?.formatEther(balance_od_1) * 10 ** 18
-    let id_2_balanace = ethers?.utils?.formatEther(balance_od_2) * 10 ** 18
-    let id_3_balanace = ethers?.utils?.formatEther(balance_od_3) * 10 ** 18
+  // const getOwnedNfts = async() => {
+  //   // let address = '0xdA6FC02997Fb49941f2067babfC32020717fa12a'
+  //   let balance_od_0 = await contract?.call('balanceOf', [address, 0])
+  //   let balance_od_1 = await contract?.call('balanceOf', [address, 1])
+  //   let balance_od_2 = await contract?.call('balanceOf', [address, 2])
+  //   let balance_od_3 = await contract?.call('balanceOf', [address, 3])
+  //   let id_0_balanace = ethers?.utils?.formatEther(balance_od_0) * 10 ** 18
+  //   let id_1_balanace = ethers?.utils?.formatEther(balance_od_1) * 10 ** 18
+  //   let id_2_balanace = ethers?.utils?.formatEther(balance_od_2) * 10 ** 18
+  //   let id_3_balanace = ethers?.utils?.formatEther(balance_od_3) * 10 ** 18
 
-    let nftss = []
-    const uri_0 = await contract?.call('uri', [0])
-    const data_0 = await getData(uri_0, id_0_balanace, 0)
-    const uri_1 = await contract?.call('uri', [1])
-    const data_1 = await getData(uri_1, id_0_balanace, 1)
-    const uri_2 = await contract?.call('uri', [2])
-    const data_2 = await getData(uri_2, id_0_balanace, 2)
-    const uri_3 = await contract?.call('uri', [3])
-    const data_3 = await getData(uri_3, id_0_balanace, 3)
-    if(data_0)
-      nftss.push(data_0)
-    if(data_1)
-      nftss.push(data_1)
-    if(data_2)
-      nftss.push(data_2)
-    if(data_3)
-      nftss.push(data_3)
+  //   let nftss = []
+  //   const uri_0 = await contract?.call('uri', [0])
+  //   const data_0 = await getData(uri_0, id_0_balanace, 0)
+  //   const uri_1 = await contract?.call('uri', [1])
+  //   const data_1 = await getData(uri_1, id_0_balanace, 1)
+  //   const uri_2 = await contract?.call('uri', [2])
+  //   const data_2 = await getData(uri_2, id_0_balanace, 2)
+  //   const uri_3 = await contract?.call('uri', [3])
+  //   const data_3 = await getData(uri_3, id_0_balanace, 3)
+  //   if(data_0)
+  //     nftss.push(data_0)
+  //   if(data_1)
+  //     nftss.push(data_1)
+  //   if(data_2)
+  //     nftss.push(data_2)
+  //   if(data_3)
+  //     nftss.push(data_3)
 
 
-    // const contract = await sdk.getContract(ERC1155_ADDRESS)
-    // const nfts = await contract.erc1155.getOwned(address)
-    // let nftss = []
-    // for (let i = 0; i < nfts.length; i++) {
-    //   nftss.push({
-    //     name: nfts[i].metadata.name,
-    //     balance: nfts[i].quantityOwned,
-    //     image: nfts[i].metadata.image,
-    //     id: nfts[i].metadata.id
-    //   })
-    // }
+  //   // const contract = await sdk.getContract(ERC1155_ADDRESS)
+  //   // const nfts = await contract.erc1155.getOwned(address)
+  //   // let nftss = []
+  //   // for (let i = 0; i < nfts.length; i++) {
+  //   //   nftss.push({
+  //   //     name: nfts[i].metadata.name,
+  //   //     balance: nfts[i].quantityOwned,
+  //   //     image: nfts[i].metadata.image,
+  //   //     id: nfts[i].metadata.id
+  //   //   })
+  //   // }
     
-    console.log("contract nfts are",nftss);
+  //   console.log("contract nfts are",nftss);
 
-    // setNfts(nftss)
-  }
+  //   // setNfts(nftss)
+  // }
 
-  useEffect(()=>{
-    if(contract)
-    getOwnedNfts()
-  }, [refresh, contract])
+  // useEffect(()=>{
+  //   if(contract)
+  //   getOwnedNfts()
+  // }, [refresh, contract])
 
    
 
