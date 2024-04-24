@@ -156,7 +156,7 @@ const Card = ({ nft, loading, unstake, forcedUnstake }) => {
     return (
       <div className={styles.cardContainer}>
             <h1>{nft.name}</h1>
-            <img src={nft.image} /> 
+            {/* <img src={nft.image} />  */}
             <h4 className='font-bold mt-1.5 text-gray-400'>Time Left to Unstake</h4>
             <div className='gap-1 flex-wrap mt-1' style={{display:"flex"}}>
                 <h4> <span className='font-semibold'>{timeLeft?.months}</span>mo - </h4>
