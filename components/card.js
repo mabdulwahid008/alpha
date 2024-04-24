@@ -43,10 +43,10 @@ export default function Card({uri, setStakeNft,stakingContractAddres,id , amount
     <section className={styles.cardContainer}>
       {nft?.name ? <h1>{nft.name}</h1> : <h1>No NFT title can be shown.</h1>}
       {/* {nftImage ? <img src={nftImage} /> : <p>No NFT image can be shown.</p>} */}
-          {/* {id==0?<img src="https://i.seadn.io/s/raw/files/bd9d3c055236c1527fb65764d9fd892a.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
+          {id==0?<img src="https://i.seadn.io/s/raw/files/bd9d3c055236c1527fb65764d9fd892a.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
           {id==1?<img src="https://i.seadn.io/s/raw/files/d12b0f36b43032d668e1b954dca4f4c6.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
           {id==2?<img src="https://i.seadn.io/s/raw/files/eed92a5d395f1c7e785b0bd19ee52797.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
-          {id==3?<img src="https://i.seadn.io/s/raw/files/c0c2e1520cedca641c00ef0a1725c325.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""} */}
+          {id==3?<img src="https://i.seadn.io/s/raw/files/c0c2e1520cedca641c00ef0a1725c325.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
 
       {id ? (
         <>

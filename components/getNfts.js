@@ -226,10 +226,10 @@ const Model = ({ stakeNft, setStakeNft, setRefresh }) => {
         <div className=" mx-auto mt-[100px] rounded-2xl p-5 bg-[#121212] relative w-[50%] md:w-[80%] sm:w-[90%] sm:flex-col sm:mt-[40px]  gap-5 justify-start items-center w30" style={{display:'flex'}}>
           <h2 className="absolute top-0 right-5 cursor-pointer" onClick={() => setStakeNft(false)}>X</h2>
           
-          {/* {stakeNft.token_id==0?<img src="https://i.seadn.io/s/raw/files/bd9d3c055236c1527fb65764d9fd892a.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
+          {stakeNft.token_id==0?<img src="https://i.seadn.io/s/raw/files/bd9d3c055236c1527fb65764d9fd892a.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
           {stakeNft.token_id==1?<img src="https://i.seadn.io/s/raw/files/d12b0f36b43032d668e1b954dca4f4c6.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
           {stakeNft.token_id==2?<img src="https://i.seadn.io/s/raw/files/eed92a5d395f1c7e785b0bd19ee52797.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
-          {stakeNft.token_id==3?<img src="https://i.seadn.io/s/raw/files/c0c2e1520cedca641c00ef0a1725c325.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""} */}
+          {stakeNft.token_id==3?<img src="https://i.seadn.io/s/raw/files/c0c2e1520cedca641c00ef0a1725c325.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
 
 
           <div className="flex-col gap-2 w-full" style={{display:"flex"}}>
