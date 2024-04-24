@@ -250,7 +250,7 @@ const Model = ({ stakeNft, setStakeNft, setRefresh }) => {
 
               <div className="flex-col gap-1 mt-6 sm:mt-3" style={{display:"flex"}}>
                 <h4>Approximate Reward</h4>
-                {rewards? <>
+                {/* {rewards? <>
                 <div className="justify-between items-center mt-4" style={{display:"flex"}}>
                     <p className="text-sm leading-3">Alpha Tokens</p>
                     <p className="text-sm leading-3">{rewards.act} ACT</p>
@@ -262,6 +262,48 @@ const Model = ({ stakeNft, setStakeNft, setRefresh }) => {
                 </>
                 :
                 <Image src={'https://icon-park.com/imagefiles/loading7_pink.gif'} width={40} height={40} className="mt-2"/>
+                } */}
+                {stakingPeriod==3?
+                 <>
+                 <div className="justify-between items-center mt-4" style={{display:"flex"}}>
+                     <p className="text-sm leading-3">Alpha Tokens</p>
+                     <p className="text-sm leading-3">16350.0 ACT</p>
+                 </div>
+                 <div className="justify-between items-center" style={{display:"flex"}}>
+                     <p className="text-sm leading-3">USD Thether</p>
+                     <p className="text-sm leading-3">32.7 USDT</p>
+                 </div>
+                 </>
+                 :
+                 ""
+                }
+                {stakingPeriod==6?
+                 <>
+                 <div className="justify-between items-center mt-4" style={{display:"flex"}}>
+                     <p className="text-sm leading-3">Alpha Tokens</p>
+                     <p className="text-sm leading-3">65400.0 ACT</p>
+                 </div>
+                 <div className="justify-between items-center" style={{display:"flex"}}>
+                     <p className="text-sm leading-3">USD Thether</p>
+                     <p className="text-sm leading-3">65.4 USDT</p>
+                 </div>
+                 </>
+                 :
+                 ""
+                }
+                {stakingPeriod==12?
+                 <>
+                 <div className="justify-between items-center mt-4" style={{display:"flex"}}>
+                     <p className="text-sm leading-3">Alpha Tokens</p>
+                     <p className="text-sm leading-3">130800.0 ACT</p>
+                 </div>
+                 <div className="justify-between items-center" style={{display:"flex"}}>
+                     <p className="text-sm leading-3">USD Thether</p>
+                     <p className="text-sm leading-3">130.8 USDT</p>
+                 </div>
+                 </>
+                 :
+                 ""
                 }
               </div>
 
