@@ -38,19 +38,7 @@ export default function Card({uri, setStakeNft,stakingContractAddres,id , amount
     nftDropContractAddress,
     "nft-drop"
   );
-  async function stakeNft() {
-    if (!address) return;
-
-    const isApproved = await nftDropContract?.isApproved(
-      address,
-      stakingContractAddress
-    );
-    if (!isApproved) {
-      await nftDropContract?.setApprovalForAll(stakingContractAddress, true);
-    }
-    await contract?.call("stake", [[props.id]]);
-    window.location.reload();
-  }
+ 
   return (
     <section className={styles.cardContainer}>
       {nft?.name ? <h1>{nft.name}</h1> : <h1>No NFT title can be shown.</h1>}
