@@ -36,12 +36,7 @@ const Stake: NextPage = () => {
                             : ""
                     }
                 >
-                 {
-                    !address?
-                    <ConnectWallet className="ccbtn" /> 
-                      :
-                      ""
-                 }
+
                     {address && (
                         <div className={styles.container}>
                     {/* <ConnectWallet />  */}
@@ -74,5 +69,3 @@ const Stake: NextPage = () => {
 };
 
 export default Stake;
-
-
