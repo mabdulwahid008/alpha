@@ -224,7 +224,7 @@ const Model = ({ stakeNft, setStakeNft, setRefresh }) => {
   return (
     <div className="fixed top-0 left-0 w-full h-screen bg-[#000000be] z-[999999999999999] " >
         <div className=" mx-auto mt-[100px] rounded-2xl p-5 bg-[#121212] relative w-[50%] md:w-[80%] sm:w-[90%] sm:flex-col sm:mt-[40px]  gap-5 justify-start items-center w30 zid" style={{display:'flex'}}>
-          <h2 className="absolute top-0 right-5 cursor-pointer" onClick={() => setStakeNft(false)}>X</h2>
+          <h2 className="absolute top-0 right-5 cursor-pointer xcros" onClick={() => setStakeNft(false)}>X</h2>
           
           {stakeNft.token_id==0?<img src="https://i.seadn.io/s/raw/files/bd9d3c055236c1527fb65764d9fd892a.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
           {stakeNft.token_id==1?<img src="https://i.seadn.io/s/raw/files/d12b0f36b43032d668e1b954dca4f4c6.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
@@ -237,13 +237,13 @@ const Model = ({ stakeNft, setStakeNft, setRefresh }) => {
 
               <h4>Stake For</h4>
               <div className="gap-2 w-full" style={{display:"flex"}}>
-                <span onClick={()=>{setSetakingPeriod(12)}} className={`justify-center items-center gap-3 ${stakingPeriod == 12 ? 'bg-pink-400': 'bg-black'} p-2 flex-1 rounded-md cursor-pointer`} style={{display:"flex"}}>
+                <span onClick={()=>{setSetakingPeriod(12)}} className={`justify-center items-center gap-3 ${stakingPeriod == 12 ? 'bg-pink-400': 'bg-black'} p-2 flex-1 rounded-md cursor-pointer zb`} style={{display:"flex"}}>
                     12 Months
                   </span>
-                <span onClick={()=>{setSetakingPeriod(6)}} className={`justify-center items-center gap-3 ${stakingPeriod == 6 ? 'bg-pink-400': 'bg-black'} p-2 flex-1 rounded-md cursor-pointer`} style={{display:"flex"}}>
+                <span onClick={()=>{setSetakingPeriod(6)}} className={`justify-center items-center gap-3 ${stakingPeriod == 6 ? 'bg-pink-400': 'bg-black'} p-2 flex-1 rounded-md cursor-pointer zb`} style={{display:"flex"}}>
                     6 Months
                   </span>
-                <span onClick={()=>{setSetakingPeriod(3)}} className={`justify-center items-center gap-3 ${stakingPeriod == 3 ? 'bg-pink-400': 'bg-black'} p-2 flex-1 rounded-md cursor-pointer`} style={{display:"flex"}}>
+                <span onClick={()=>{setSetakingPeriod(3)}} className={`justify-center items-center gap-3 ${stakingPeriod == 3 ? 'bg-pink-400': 'bg-black'} p-2 flex-1 rounded-md cursor-pointer zb`} style={{display:"flex"}}>
                     3 Months
                   </span>
               </div>
@@ -307,7 +307,7 @@ const Model = ({ stakeNft, setStakeNft, setRefresh }) => {
                 }
               </div>
 
-            <button onClick={stake} style={{marginTop:20}}>Stake NFT</button>
+            <button onClick={stake} className="zb" style={{marginTop:20}}>Stake NFT</button>
     </div>
 
       </div>
