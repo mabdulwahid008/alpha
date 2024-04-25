@@ -4998,3 +4998,7 @@ text-align: center;
     z-index: 322311!important;
   }
 }
+
+.bg-pink-400 {
+  background-color: pink; /* Change this to your desired pink color */
+}
