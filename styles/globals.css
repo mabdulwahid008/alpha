@@ -4988,5 +4988,7 @@ text-align: center;
     transform: translate(-50%, -50%)!important;
     /* Add your button styles here */
   }
-  
+  .zid{
+    z-index: 3212312321231!important;
+  }
 }

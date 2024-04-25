@@ -223,7 +223,7 @@ const Model = ({ stakeNft, setStakeNft, setRefresh }) => {
   }, [rewards])
   return (
     <div className="fixed top-0 left-0 w-full h-screen bg-[#000000be] z-[999999999999999] " >
-        <div className=" mx-auto mt-[100px] rounded-2xl p-5 bg-[#121212] relative w-[50%] md:w-[80%] sm:w-[90%] sm:flex-col sm:mt-[40px]  gap-5 justify-start items-center w30" style={{display:'flex'}}>
+        <div className=" mx-auto mt-[100px] rounded-2xl p-5 bg-[#121212] relative w-[50%] md:w-[80%] sm:w-[90%] sm:flex-col sm:mt-[40px]  gap-5 justify-start items-center w30 zid" style={{display:'flex'}}>
           <h2 className="absolute top-0 right-5 cursor-pointer" onClick={() => setStakeNft(false)}>X</h2>
           
           {stakeNft.token_id==0?<img src="https://i.seadn.io/s/raw/files/bd9d3c055236c1527fb65764d9fd892a.png?auto=format&dpr=1&w=640" width={300} height={400} className="w-full sm:h-[200px] object-cover"/>:""}
